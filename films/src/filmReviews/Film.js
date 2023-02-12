@@ -5,7 +5,7 @@ function Film(props) {
   return (
     <div>
       <img src={props.film.image_rl} alt="film poster"></img>
-      <h2>{props.film.title}</h2>
+      <h3>{props.film.title}</h3>
     </div>
   )
 }

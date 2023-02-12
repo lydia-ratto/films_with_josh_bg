@@ -1,0 +1,6 @@
+.cinema {
+  position: absolute;
+  z-index: 12;
+  width: 41rem;
+  top: 32rem;
+}

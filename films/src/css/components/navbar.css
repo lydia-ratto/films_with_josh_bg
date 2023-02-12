@@ -1,0 +1,5 @@
+.navbar {
+  position: absolute;
+  padding: 20px;
+  display: flex;
+}

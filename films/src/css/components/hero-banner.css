@@ -1,0 +1,12 @@
+.hero-banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.hero-title {
+  position: absolute;
+  z-index: 22;
+  top: 6rem;
+}

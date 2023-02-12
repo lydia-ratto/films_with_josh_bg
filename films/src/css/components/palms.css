@@ -1,0 +1,7 @@
+.palms {
+  position: absolute;
+  z-index: 2;
+  top: 10rem;
+  left: 75rem;
+  width: 18rem;
+}

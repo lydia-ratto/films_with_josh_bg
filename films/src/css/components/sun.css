@@ -1,0 +1,34 @@
+.suns {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 4rem;
+}
+
+.sun-centre {
+  position: absolute;
+  z-index: 10;
+  width: 24rem;
+  height: 24rem;
+  background: #FFE66C;
+  border-radius: 50%;
+}
+
+.sun-middle {
+  position: absolute;
+  z-index: 9;
+  width: 27rem;
+  height: 27rem;
+  background: #FFE66C;
+  border-radius: 50%;
+}
+
+.sun-outer {
+  z-index: 8;
+  width: 30rem;
+  height: 30rem;
+  background: #F3D959;
+  border: 4px solid #6C331C;
+  border-radius: 50%;
+}

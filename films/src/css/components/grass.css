@@ -1,0 +1,20 @@
+.grass-dark {
+  position: absolute;
+  width: 85rem;
+  top: 19rem;
+  left: 0rem;
+}
+
+.grass-light {
+  position: absolute;
+  width: 60rem;
+  top: 23rem;
+  left: 40rem;
+}
+
+.chorleywood {
+  left: 3rem;
+  position: absolute;
+  top: 26rem;
+  z-index: 20;
+}
