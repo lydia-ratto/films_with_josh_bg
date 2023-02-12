@@ -16,7 +16,7 @@ def create_film_details()
   release_year = rand(1970..2022)
   imdb_id = "#{title} #{release_year}"
   director = Faker::Movies::HarryPotter.character
-  # genre = [Faker::Book.genre, Faker::Book.genre]
+  genres = [Faker::Book.genre, Faker::Book.genre]
   imdb_score = rand(1..10)
   rotten_tom_score = rand(1..100)
   film_length_mins = rand(90..200)
@@ -33,7 +33,7 @@ def create_film_details()
     title:,
     release_year:,
     director:,
-    # genre:,
+    genres:,
     imdb_score:,
     rotten_tom_score:,
     film_length_mins:,
@@ -82,7 +82,7 @@ puts "-----Films created-------"
 #   title = film_info['title']
 #   release_year = film_info['year']
 #   director = film_info['directors']
-#   genre = film_info['genres'].split(',')
+#   genres = film_info['genres'].split(',')
 #   imdb_score = film_info['imDbRating']
 #   rotten_tom_score = film_info['ratings']['rottenTomatoes']
 #   film_length_mins = film_info['runtimeMins']
@@ -94,7 +94,7 @@ puts "-----Films created-------"
 #     title:,
 #     release_year:,
 #     director:,
-#     genre:,
+#     genres:,
 #     imdb_score:,
 #     rotten_tom_score:,
 #     film_length_mins:,
