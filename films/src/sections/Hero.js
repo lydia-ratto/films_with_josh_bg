@@ -1,9 +1,9 @@
-import '../css/components/sun.css';
-import '../css/components/josh.css';
-import '../css/components/hero-banner.css';
-import '../css/components/cinema.css';
-import '../css/components/grass.css';
-import '../css/components/palms.css';
+import '../css/components/sun.scss';
+import '../css/components/josh.scss';
+import '../css/components/hero-banner.scss';
+import '../css/components/cinema.scss';
+import '../css/components/grass.scss';
+import '../css/components/palms.scss';
 import React from 'react'
 
 function Hero() {

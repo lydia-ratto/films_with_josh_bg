@@ -1,4 +1,4 @@
-import './css/App.css';
+import './css/App.scss';
 import AllFilms from "./filmReviews/AllFilms";
 import Hero from "./sections/Hero"
 import Navbar from "./sections/Navbar"

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "aos": "^2.3.4",
+    "react-transition-group": "^4.4.5"
+  }
+}
