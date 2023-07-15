@@ -1,9 +1,3 @@
-import '../css/components/sun.scss';
-import '../css/components/josh.scss';
-import '../css/components/hero-banner.scss';
-import '../css/components/cinema.scss';
-import '../css/components/grass.scss';
-import '../css/components/palms.scss';
 import React from 'react'
 
 function Hero() {
