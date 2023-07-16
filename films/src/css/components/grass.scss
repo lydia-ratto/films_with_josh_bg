@@ -1,20 +1,27 @@
-.grass-dark {
-  position: absolute;
-  width: 85rem;
-  top: 19rem;
-  left: 0rem;
+@media (max-width: 480px) {
+  .grass-dark, .grass-light, .chorleywood {
+    display: none;
+  }
 }
 
-.grass-light {
-  position: absolute;
-  width: 60rem;
-  top: 23rem;
-  left: 40rem;
-}
+@media (min-width: 768px) {
+  .grass-dark {
+    position: absolute;
+    width: 80%;
+    bottom: 0;
+    left: 0;
+  }
+  .grass-light {
+    position: absolute;
+    width: 60%;
+    bottom: 20%;
+    right: 0;
+  }
 
-.chorleywood {
-  left: 3rem;
-  position: absolute;
-  top: 26rem;
-  z-index: 20;
+  .chorleywood {
+    left: 3rem;
+    position: absolute;
+    top: 26rem;
+    z-index: 20;
+  }
 }

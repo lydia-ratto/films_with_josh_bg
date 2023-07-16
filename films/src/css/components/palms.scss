@@ -1,7 +1,23 @@
+@media (max-width: 480px) {
+  .palms {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .palms {
+    left: 75%;
+    width: 22%;
+    bottom: 0;
+    position: absolute;
+    z-index: 2;
+  }
+}
+
+
 .palms {
-  position: absolute;
-  z-index: 2;
-  top: 10rem;
-  left: 75rem;
-  width: 18rem;
+
+  // top: 10rem;
+  // left: 75rem;
+  // width: 18rem;
 }

@@ -14,13 +14,25 @@ code {
     monospace;
 }
 
+@media (max-width: 480px) {
+  h1 {
+    font-size: 50px;
+    line-height: 80px;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 70px;
+    line-height: 103px;
+  }
+}
+
 h1 {
   z-index: 20;
   font-family: 'Shrikhand';
   font-style: italic;
   font-weight: 400;
-  font-size: 70.7951px;
-  line-height: 103px;
   text-align: center;
   color: #DC6738;
   margin: 0;

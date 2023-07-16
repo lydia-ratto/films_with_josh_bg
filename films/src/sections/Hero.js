@@ -4,7 +4,7 @@ function Hero() {
   return (
     <div className="hero-banner">
       <div className="hero-title">
-        <h1><span style={{fontSize: '120px'}}>FILMS </span>with</h1>
+        <h1><span className="films-text">FILMS </span>with</h1>
         <h1>JOSH BUNGARD</h1>
       </div>
       <img src={require("../images/grass-dark.png")} className="grass-dark" alt="grass-light"/>
