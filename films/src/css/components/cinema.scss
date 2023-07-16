@@ -6,7 +6,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 481px) {
   .cinema {
     width: 43%;
     top: 63%;
@@ -16,5 +16,4 @@
 .cinema {
   position: absolute;
   z-index: 12;
-  // width: 41rem;
 }
