@@ -1,9 +1,21 @@
+@media (max-width: 480px) {
+  .suns {
+    overflow: hidden;
+    top: 2%;
+  }
+}
+
+@media (min-width: 481px) {
+  .suns {
+    top: 4%;
+  }
+}
+
 .suns {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 4rem;
 }
 
 .sun-centre {

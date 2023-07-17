@@ -32,7 +32,7 @@ function AllFilms() {
   if (error) return <p>Error: {error.message}</p>;
 
   const allFilms = films.map(film =>
-      <div className="films-grid">
+      <div>
         <Film film={film}/>
       </div>
     )
@@ -40,7 +40,9 @@ function AllFilms() {
   return (
     <div>
       <h1>All film reviews</h1>
-      {allFilms}
+      <div className="films-grid">
+        {allFilms}
+      </div>
     </div>
   )
 }
