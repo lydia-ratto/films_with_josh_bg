@@ -34,3 +34,6 @@
 
 # Ignore rubymine files
 /.idea
+
+# Ignore environment variables file
+/.env
