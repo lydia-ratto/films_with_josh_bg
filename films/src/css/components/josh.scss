@@ -1,6 +1,21 @@
+@media (max-width: 480px) {
+  .josh-hero {
+    width: 120%;
+    top: 50%;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 481px) {
+  .josh-hero {
+    width: 25%;
+    top: 30%;
+  }
+}
+
 .josh-hero {
   position: absolute;
   z-index: 11;
-  width: 25rem;
-  top: 16rem;
+  // width: 25rem;
+  // top: 16rem;
 }
