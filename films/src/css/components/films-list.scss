@@ -8,7 +8,7 @@
 
   .film-box {
     width: 80%;
-    height: 370px;
+    height: 340px;
     border-radius: 20.307px;
     border: 7px solid #A14C2A;
     padding: 21px 25px;
@@ -18,25 +18,24 @@
 @media (min-width: 481px) {
   .films-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px;
     margin: 20px auto;
   }
-  .film-box {
+}
+
+@media (min-width: 481px) {
+  .films-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+    margin: 20px auto;
   }
 }
 
 @media (min-width: 1024px) {
   .films-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 50px auto;
-  }
-}
-
-@media (min-width: 1225px) {
-  .films-grid {
-    grid-template-columns: 1fr 1fr 1fr;
     margin: 50px auto;
   }
 }

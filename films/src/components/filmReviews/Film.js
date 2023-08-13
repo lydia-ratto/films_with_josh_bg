@@ -8,7 +8,7 @@ function Film(props) {
       <div className="film-text">
         <h3>{props.film.title}</h3>
         <div className="flex align-center">
-          <img src={require("../images/favicon.png")} className="rating-icon" alt="rating-icon"/>
+          <img src={require("../../images/favicon.png")} className="rating-icon" alt="rating-icon"/>
           <h5>{props.film.josh_score}</h5>
         </div>
       </div>
