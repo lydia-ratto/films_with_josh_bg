@@ -1,18 +1,10 @@
 import './css/App.scss';
-import AllFilms from "./filmReviews/AllFilms";
-import Hero from "./sections/Hero"
-import Navbar from "./sections/Navbar"
-import Search from "./sections/Search"
-
-
+import AppRoutes from './AppRoutes';
 
 function App() {
   return (
     <div className="App" style={{backgroundColor: '#F7D9AE'}}>
-      <Navbar />
-      <Hero />
-      <Search />
-      <AllFilms />
+      <AppRoutes />
     </div>
   );
 }
