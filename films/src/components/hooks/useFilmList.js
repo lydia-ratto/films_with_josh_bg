@@ -38,8 +38,6 @@ function UseFilmList({children}) {
     fetchData();
   }, []);
 
-  console.log(filmList);
-
   return <>{children}</>;
 }
 

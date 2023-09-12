@@ -9,8 +9,6 @@ function HomePage() {
     <div>
       <Navbar />
       <Hero />
-      <Search />
-      <AllFilms />
     </div>
   )
 }

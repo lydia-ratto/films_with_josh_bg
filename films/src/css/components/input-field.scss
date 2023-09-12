@@ -1,0 +1,22 @@
+.input-box {
+  border-radius: 100px;
+  border: 7px solid $orange;
+  background: white;
+  padding: 28px;
+  margin: 20px auto;
+}
+
+.input-box :active {
+  border-color: $dark-brown;
+}
+
+.input-text {
+  color: #DCD6B5;
+  text-align: center;
+  font-family: Raleway;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 3px;
+}
