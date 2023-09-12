@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './css/index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ChakraProvider } from '@chakra-ui/react'
+import { CustomTheme } from './components/CustomTheme'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={CustomTheme}>
+      <App />
+    </ChakraProvider>
   </React.StrictMode>
 );
 

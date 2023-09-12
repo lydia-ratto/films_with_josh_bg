@@ -3,7 +3,7 @@ import React from "react"
 function Film(props) {
   console.log(props.film)
   return (
-    <div className="film-box">
+    <div className="film-box" color="brand">
       <img src={props.film.image_url} alt="film poster" className="film-image"></img>
       <div className="film-text">
         <h3>{props.film.title}</h3>

@@ -1,0 +1,69 @@
+@import "colors";
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 50px;
+    line-height: 80px;
+  }
+}
+
+@media (min-width: 481px) {
+  h1 {
+    font-size: 70px;
+    line-height: 103px;
+  }
+}
+
+h1 {
+  z-index: 20;
+  font-family: 'Shrikhand';
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  color: $orange;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Shrikhand';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 70.7951px;
+  line-height: 103px;
+  text-align: center;
+  color: $orange;
+  margin: 0;
+}
+
+h3 {
+  color: #A14C2A;
+  font-family: 'Raleway';
+  font-size: 17.5px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+h5 {
+  color: $orange;
+  font-family: Shrikhand;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+p {
+  color: $dark-grey;
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 300;
+  line-height: normal;
+}

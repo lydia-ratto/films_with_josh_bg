@@ -6,20 +6,28 @@ import {
 } from 'react-router-dom';
 import AllFilmsPage from "./components/pages/AllFilmsPage";
 import HomePage from "./components/pages/HomePage";
+import AddFilmPage from "./components/pages/AddFilmPage";
+
 function AppRoutes() {
   return (
     <BrowserRouter>
     <Routes>
       <Route
-        path="/films"
+        path="/"
         element={
           <HomePage />
         }
       />
       <Route
-        path="/films/list"
+        path="/films"
         element={
           <AllFilmsPage />
+        }
+      />
+      <Route
+        path="/films/add"
+        element={
+          <AddFilmPage />
         }
       />
       </Routes>

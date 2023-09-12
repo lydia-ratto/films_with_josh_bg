@@ -5,7 +5,6 @@ function AllFilmsTable(items) {
   const films = items.items;
   return (
     <div>
-      <h1>All film reviews</h1>
       <div className="films-grid">
         {films?.map((film) => {
           return (
