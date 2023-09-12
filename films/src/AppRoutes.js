@@ -7,6 +7,7 @@ import {
 import AllFilmsPage from "./components/pages/AllFilmsPage";
 import HomePage from "./components/pages/HomePage";
 import AddFilmPage from "./components/pages/AddFilmPage";
+import FilmPage from "./components/pages/FilmPage"
 
 function AppRoutes() {
   return (
@@ -22,6 +23,12 @@ function AppRoutes() {
         path="/films"
         element={
           <AllFilmsPage />
+        }
+      />
+      <Route
+        path="/films/:id"
+        element={
+          <FilmPage />
         }
       />
       <Route
