@@ -1,15 +1,23 @@
 import React from "react"
 
-function FilmDetails(props) {
-  console.log(props)
+function FilmDetails({ filmData }) {
   return (
-    <div className="film-box" color="brand">
-      <img src={props.image_url} alt="film poster" className="film-image"></img>
-      <div className="film-text">
-        <h3>{props.title}</h3>
-        <div className="flex align-center">
-          <img src={require("../../images/favicon.png")} className="rating-icon" alt="rating-icon"/>
-          <h5>{props.josh_score}</h5>
+    <div className="container">
+      <div className="show--top">
+        <img src={filmData.imageUrl} alt="poster" className="show--poster" />
+        <div className="show--film-info">
+          <h2 className="show--film-title">{filmData.title}</h2>
+          <div className="show--film-ratings">
+            <div className="show--josh-rating">Josh rating: {filmData.joshScore}</div>
+            <div className="show--other-ratings">
+              <div>IMDb rating: {filmData.imdbScore}</div>
+              <div>RottenTomatoes Score: {filmData.rottenTomScore}</div>
+            </div>
+          </div>
+        </div>
+        <div className="show--bottom">
+          <h2>What Josh says:</h2>
+          <div className="show--josh-notes">{filmData.joshNotes}</div>
         </div>
       </div>
     </div>

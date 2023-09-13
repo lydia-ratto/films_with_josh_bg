@@ -4,12 +4,11 @@ import UseFilm from "../hooks/useFilm";
 import FilmDetails from "../showFilm/FilmDetails";
 
 function FilmPage() {
-  console.log("In film page");
   return (
     <div>
       <FilmContextProvider>
         <UseFilm>
-          <FilmDetails />
+          {(filmData) => <FilmDetails filmData={filmData} />}
         </UseFilm>
       </FilmContextProvider>  
     </div>

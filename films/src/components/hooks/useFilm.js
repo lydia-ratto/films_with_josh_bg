@@ -14,7 +14,6 @@ function UseFilm({children}) {
   const { filmData, updateFilmData } = filmCtx;
 
   useEffect(() => {
-    console.log("use effect");
     const fetchData = async () => {
       try {
         updateFilmData({
@@ -26,6 +25,7 @@ function UseFilm({children}) {
         const data = response.data
         updateFilmData({
           ...filmData,
+          title: data.title,
           imdbId: data.imdb_id,
           releaseYear: data.release_year,
           imageUrl: data.image_url,
@@ -52,7 +52,7 @@ function UseFilm({children}) {
     fetchData();
   }, []);
 
-  return <>{children}</>;
+  return <>{children(filmData)}</>;
 }
 
 export default UseFilm;
