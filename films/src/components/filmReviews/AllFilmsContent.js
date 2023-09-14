@@ -4,7 +4,6 @@ import FilmListContext from "../context/FilmListContext";
 import AllFilmsTable from "./AllFilmsTable";
 
 function normalizedFilmData(data) {
-  console.log(data);
   if (data?.length > 0) {
     return data.map((item) => {
       return {
