@@ -1,25 +1,31 @@
 import React from 'react'
+import { Box, Heading, Image } from "@chakra-ui/react";
 
 function Hero() {
   return (
-    <div className="hero-banner">
-      <div className="hero-title">
-        <h1><span className="films-text">FILMS </span>with</h1>
-        <h1>JOSH BUNGARD</h1>
-      </div>
-      <img src={require("../../images/grass-dark.png")} className="grass-dark" alt="grass-light"/>
-      <img src={require("../../images/chorleywood.png")} className="chorleywood" alt="chorleywood"/>
-      <img src={require("../../images/grass-light.png")} className="grass-light" alt="grass-light"/>
-      <div className="grass-light"/>
-      <div className="suns">
-        <div className="sun-centre" />
-        <div className="sun-middle" />
-        <div className="sun-outer" />
-      </div>
-      <img src={require("../../images/palms.png")} className="palms" alt="palms"/>
-      <img src={require("../../images/josh.png")} className="josh-hero" alt="josh"/>
-      <img src={require("../../images/cinema.png")} className="cinema" alt="cinema"/>
-    </div>
+    <Box className="hero-banner">
+      <Box className="hero-title">
+        <Heading as="h1" textSt>
+          <Box as="span" className="films-text">
+            FILMS 
+          </Box>
+          with
+        </Heading>
+        <Heading as="h1">JOSH BUNGARD</Heading>
+      </Box>
+      <Image src={require("../../images/grass-dark.png")} className="grass-dark" alt="grass-light"/>
+      <Image src={require("../../images/chorleywood.png")} className="chorleywood" alt="chorleywood"/>
+      <Image src={require("../../images/grass-light.png")} className="grass-light" alt="grass-light"/>
+      <Box className="grass-light"/>
+      <Box className="suns">
+        <Box className="sun-centre" />
+        <Box className="sun-middle" />
+        <Box className="sun-outer" />
+      </Box>
+      <Image src={require("../../images/palms.png")} className="palms" alt="palms"/>
+      <Image src={require("../../images/josh.png")} className="josh-hero" alt="josh"/>
+      <Image src={require("../../images/cinema.png")} className="cinema" alt="cinema"/>
+    </Box>
   )
 }
 

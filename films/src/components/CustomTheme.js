@@ -1,24 +1,10 @@
-import { extendTheme, ChakraProvider } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools';
 
 
-const stylesControls = {
-  // borderRadius: '25px',
-  border: 'solid 2px transparent',
-  color: 'primaryDark',
-  padding: '0 20px',
-  _placeholder: {
-    color: 'rgba(59, 72, 81, 0.6)',
-  },
-};
-
-const stylesControlsForLightBg = {
-  backgroundColor: 'rgba(221, 221, 221, 0.5)',
-  _hover: {
-    border: 'solid 2px #3B4851',
-    backgroundColor: 'rgba(221, 221, 221, 0.5)',
-    color: 'secondaryDark',
-  },
+const fonts = {
+  heading: "'Shrikhand', sans-serif",
+  body: "'Raleway', sans-serif",
 };
 
 export const CustomTheme = extendTheme({
@@ -42,5 +28,6 @@ export const CustomTheme = extendTheme({
       primaryBackground: '#F7D9AE',
       secondaryBackground: 'brand',
     }
-  }
+  },
+  fonts
 })
