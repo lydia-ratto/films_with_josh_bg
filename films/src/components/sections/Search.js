@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box, Heading, Text } from '@chakra-ui/react'
 import { useState } from 'react';
 
 function Search() {
@@ -6,10 +7,10 @@ function Search() {
   const [searchInput, setSearchInput] = useState("");
 
   return (
-    <div className="search">
-      <h2>Find a film</h2>
-      <div className="searchbar-input">search by title or director</div>
-    </div>
+    <Box className="search">
+      <Heading as="h2">Find a film</Heading>
+      <Text className="searchbar-input">search by title or director</Text>
+    </Box>
   )
 }
 
