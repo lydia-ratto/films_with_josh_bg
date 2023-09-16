@@ -2,19 +2,14 @@ module FilmsConcern
   extend ActiveSupport::Concern
   require "json"
   require "open-uri"
-
-  def find_films(film_title)
-    film_title = film_title.gsub(" ", "%20")
-    url = URI("https://movie-database-alternative.p.rapidapi.com/?s=#{film_title}&r=json&page=1")
-    fetch_data(url)
-  end
+  require "net/http"
 
   def fetch_data(url)
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
 
     request = Net::HTTP::Get.new(url)
-    request["X-RapidAPI-Key"] = #{ENV['RAPID_API_KEY']}
+    request["X-RapidAPI-Key"] = ENV['RAPID_API_KEY']
     request["X-RapidAPI-Host"] = 'movie-database-alternative.p.rapidapi.com'
 
     response = http.request(request)
@@ -29,7 +24,7 @@ module FilmsConcern
     release_year = film_info['Year']
                      .to_i
     director = film_info['Director']
-    genre = film_info['Genre'].split(', ')
+    genres = film_info['Genre'].split(', ')
     imdb_score = film_info['imdbRating']
                    .to_i
     rotten_tom_score = film_info['Ratings']
@@ -43,7 +38,7 @@ module FilmsConcern
     image_url = film_info['Poster']
     language = film_info['Language']
                  .split(', ')[0]
-    rating = film_info['Rated']
+    age_rating = film_info['Rated']
 
 
     {
@@ -51,14 +46,14 @@ module FilmsConcern
       title:,
       release_year:,
       director:,
-      genre:,
+      genres:,
       imdb_score:,
       rotten_tom_score:,
       film_length_mins:,
       summary:,
       image_url:,
       language:,
-      rating:
+      age_rating:
     }
   end
 end
