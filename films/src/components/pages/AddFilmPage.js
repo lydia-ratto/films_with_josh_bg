@@ -16,7 +16,6 @@ const FilmFinder = () => {
     seen_before: false,
     location_watched: '',
   });
-
   const navigate = useNavigate();
 
   const handleSearch = async () => {
@@ -106,7 +105,7 @@ const FilmFinder = () => {
           <label>
             Josh Score:
             <input
-              type="text"
+              type="number"
               value={formValues.josh_score}
               onChange={handleFormChange}
               name="josh_score"
