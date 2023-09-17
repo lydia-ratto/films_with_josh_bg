@@ -24,12 +24,7 @@ class Api::V1::FilmsController < ApplicationController
 
   def new
     @film = Film.new
-    if params[:query].blank?
-      @found_films = {}
-    else
-      @found_films = find_films(params[:query])
-    end
-    render json: @found_films
+    render json: @film
   end
 
   def edit
