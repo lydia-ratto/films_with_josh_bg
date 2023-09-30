@@ -1,12 +1,6 @@
 import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools';
 
-
-const fonts = {
-  heading: "'Shrikhand', sans-serif",
-  body: "'Raleway', sans-serif",
-};
-
 export const CustomTheme = extendTheme({
   styles: {
     global: ({
@@ -19,7 +13,13 @@ export const CustomTheme = extendTheme({
         scrollbarWidth: 'thin',
         borderColor: 'brand',
       },
-    })
+      body: {
+        margin: "30px 130px"
+      }
+    }),
+    h2: {
+      fontSize: '5xl'
+    }
   },
   semanticTokens: {
     colors: {
@@ -29,6 +29,13 @@ export const CustomTheme = extendTheme({
       secondaryBackground: 'brand',
     }
   },
-  fonts
-
+  fonts: {
+    heading: "'Shrikhand', sans-serif",
+    body: "'Raleway', sans-serif",
+  },
+  fontSizes: {
+    "2xl": "2.5rem",
+    "3xl": "3rem",
+    "4xl": "4rem"
+  }
 })
