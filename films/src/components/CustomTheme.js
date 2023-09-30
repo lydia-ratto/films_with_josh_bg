@@ -12,9 +12,6 @@ export const CustomTheme = extendTheme({
         scrollbarColor: '#a5a5a5 transparent' /* thumb and track color */,
         scrollbarWidth: 'thin',
         borderColor: 'brand',
-      },
-      body: {
-        margin: "30px 130px"
       }
     }),
     h2: {
@@ -25,7 +22,9 @@ export const CustomTheme = extendTheme({
     Button: {
       baseStyle: {
         fontWeight: '900',
-        borderRadius: '30px'
+        borderRadius: '30px',
+        backgroundColor: "brand",
+        color: "white"
       }
     }
   },
