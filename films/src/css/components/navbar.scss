@@ -1,5 +1,14 @@
-.navbar {
-  position: absolute;
-  padding: 20px;
-  display: flex;
+.navlink {
+  font-weight: 500;
+  font-size: x-large;
+  color: black;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.navlink:hover {
+  color: $orange;
+  text-decoration: none;
 }
