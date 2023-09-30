@@ -21,6 +21,14 @@ export const CustomTheme = extendTheme({
       },
     })
   },
+  components: {
+    Button: {
+      baseStyle: {
+        fontWeight: '900',
+        borderRadius: '30px'
+      }
+    }
+  },
   semanticTokens: {
     colors: {
       brand: '#DC6738',
@@ -30,5 +38,4 @@ export const CustomTheme = extendTheme({
     }
   },
   fonts
-
 })
