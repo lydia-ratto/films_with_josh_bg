@@ -1,12 +1,6 @@
 import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools';
 
-
-const fonts = {
-  heading: "'Shrikhand', sans-serif",
-  body: "'Raleway', sans-serif",
-};
-
 export const CustomTheme = extendTheme({
   styles: {
     global: ({
@@ -18,14 +12,19 @@ export const CustomTheme = extendTheme({
         scrollbarColor: '#a5a5a5 transparent' /* thumb and track color */,
         scrollbarWidth: 'thin',
         borderColor: 'brand',
-      },
-    })
+      }
+    }),
+    h2: {
+      fontSize: '5xl'
+    }
   },
   components: {
     Button: {
       baseStyle: {
         fontWeight: '900',
-        borderRadius: '30px'
+        borderRadius: '30px',
+        backgroundColor: "brand",
+        color: "white"
       }
     }
   },
@@ -37,5 +36,13 @@ export const CustomTheme = extendTheme({
       secondaryBackground: 'brand',
     }
   },
-  fonts
+  fonts: {
+    heading: "'Shrikhand', sans-serif",
+    body: "'Raleway', sans-serif",
+  },
+  fontSizes: {
+    "2xl": "2.5rem",
+    "3xl": "3rem",
+    "4xl": "4rem"
+  }
 })
