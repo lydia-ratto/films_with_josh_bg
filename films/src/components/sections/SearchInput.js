@@ -1,3 +1,4 @@
+import { Input, Box } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 function SearchInput({ onSearch }) {
@@ -10,14 +11,14 @@ function SearchInput({ onSearch }) {
   };
 
   return (
-    <div>
-      <input
+    <Box>
+      <Input
         type="text"
         placeholder="Search films..."
         value={query}
         onChange={handleInputChange}
       />
-    </div>
+    </Box>
   );
 }
 

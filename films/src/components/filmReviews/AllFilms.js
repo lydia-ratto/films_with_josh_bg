@@ -3,7 +3,7 @@ import UseFilmList from "../hooks/useFilmList";
 import { FilmListContextProvider } from "../context/FilmListContext";
 import AllFilmsContent from '../filmReviews/AllFilmsContent'
 import SearchInput from "../sections/SearchInput";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Flex } from "@chakra-ui/react";
 
 function AllFilms() {
   const [searchQuery, setSearchQuery] = useState(""); // State to store the search query
@@ -14,10 +14,14 @@ function AllFilms() {
 
   return (
     <FilmListContextProvider>
-      <Heading>Find a film review</Heading>
       <UseFilmList searchQuery={searchQuery}>
-        <SearchInput onSearch={handleSearch} />
-        <AllFilmsContent />
+        <Flex 
+        direction={"column"}
+        alignItems={"center"}>
+          <Heading>Find a film review</Heading>
+          <SearchInput onSearch={handleSearch} />
+          <AllFilmsContent />
+        </Flex>
       </UseFilmList>
     </FilmListContextProvider>
   )
