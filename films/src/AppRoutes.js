@@ -9,37 +9,40 @@ import HomePage from "./components/pages/HomePage";
 import AddFilmPage from "./components/pages/AddFilmPage";
 import FilmPage from "./components/pages/FilmPage"
 import Navbar from "./components/sections/Navbar"
+import { Box } from "@chakra-ui/react";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
     <Navbar />
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <HomePage />
-        }
-      />
-      <Route
-        path="/films"
-        element={
-          <AllFilmsPage />
-        }
-      />
-      <Route
-        path="/films/:id"
-        element={
-          <FilmPage />
-        }
-      />
-      <Route
-        path="/films/add"
-        element={
-          <AddFilmPage />
-        }
-      />
-      </Routes>
+      <Box margin="90px 130px">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage />
+          }
+        />
+        <Route
+          path="/films"
+          element={
+            <AllFilmsPage />
+          }
+        />
+        <Route
+          path="/films/:id"
+          element={
+            <FilmPage />
+          }
+        />
+        <Route
+          path="/films/add"
+          element={
+            <AddFilmPage />
+          }
+        />
+        </Routes>
+      </Box>
     </BrowserRouter>
   )
 }

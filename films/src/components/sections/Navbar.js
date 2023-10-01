@@ -29,17 +29,21 @@ function Navbar() {
           <Image boxSize="100px" src="/images/jb-logo.png" mt={'4'} />
         </Link>
       </Flex>
-      <Flex 
-      width={'33%'} 
-      alignItems={'center'} 
-      justifyContent={'end'} gap={'40'} 
+      <Flex
+      width={'33%'}
+      alignItems={'center'}
+      justifyContent={'end'} gap={'40'}
       className="navbar--right">
         <Link to='/films/add'>
-          <Button size={'lg'} colorScheme='orange'>Add review</Button>
+          <Button
+            size={'lg'}
+          >
+            Add review
+          </Button>
         </Link>
         <h3 className={'navlink'}> ABOUT </h3>
       </Flex>
-    </Flex> 
+    </Flex>
   )
 }
 
