@@ -26,6 +26,9 @@ gem "faker"
 # for search
 gem "pg_search"
 
+# devise
+gem 'devise'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 

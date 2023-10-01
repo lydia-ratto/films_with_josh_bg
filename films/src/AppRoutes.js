@@ -10,6 +10,7 @@ import AddFilmPage from "./components/pages/AddFilmPage";
 import FilmPage from "./components/pages/FilmPage"
 import Navbar from "./components/sections/Navbar"
 import { Box } from "@chakra-ui/react";
+import Register from "./components/pages/RegisterPage";
 
 function AppRoutes() {
   return (
@@ -39,6 +40,12 @@ function AppRoutes() {
           path="/films/add"
           element={
             <AddFilmPage />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Register />
           }
         />
         </Routes>
