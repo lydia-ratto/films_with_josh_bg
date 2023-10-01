@@ -5,7 +5,7 @@ import React from 'react'
 function Navbar() {
   return (
     <Flex 
-    classname="navbar" 
+    className="navbar" 
     justifyContent='space-between' 
     alignItems='center' 
     width='100%'
@@ -19,7 +19,7 @@ function Navbar() {
     boxShadow='0px 3px 4px 0px rgba(0,0,0,0.1)'
     zIndex={'999'}
     >
-      <Box width={'33%'} classname="navbar--left">
+      <Box width={'33%'} className="navbar--left">
         <Link to='/films'>
           <h3 className={'navlink'}> FILMS </h3>
         </Link>
