@@ -4,22 +4,22 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <Flex
-      classname="navbar"
-      justifyContent='space-between'
-      alignItems='center'
-      width='100%'
-      height='20'
-      pb='4'
-      pt='6'
-      px='20'
-      position={'sticky'}
-      top={'0'}
-      bg={'#F7D9AE'}
-      boxShadow='0px 3px 4px 0px rgba(0,0,0,0.1)'
-      zIndex={'999'}
+    <Flex 
+    className="navbar" 
+    justifyContent='space-between' 
+    alignItems='center' 
+    width='100%'
+    height='20'
+    pb='4'
+    pt='6'
+    px='20'
+    position={'sticky'}
+    top={'0'}
+    bg={'#F7D9AE'}
+    boxShadow='0px 3px 4px 0px rgba(0,0,0,0.1)'
+    zIndex={'999'}
     >
-      <Box width={'33%'} classname="navbar--left">
+      <Box width={'33%'} className="navbar--left">
         <Link to='/films'>
           <h3 className={'navlink'}> FILMS </h3>
         </Link>

@@ -1,6 +1,18 @@
 require 'csv'
 
 class Film < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :search_by_title_director_and_actors,
+    against: {
+      title: 'A',
+      director: 'B',
+      summary: 'C'     
+    },
+    using: {
+      tsearch: { prefix: true, any_word: true }
+    }
+
   validates_presence_of :imdb_id, :josh_score, message: "this can't be left blank"
   validates :imdb_id, uniqueness: { message: "a review has already been added to this film" }
   validates :josh_score, numericality: {

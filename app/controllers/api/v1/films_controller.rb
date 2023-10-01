@@ -3,7 +3,8 @@ class Api::V1::FilmsController < ApplicationController
   before_action :set_film, only: %i[show edit]
 
   def index
-    @films = Film.all
+    query = params[:query]
+    @films = query ? Film.search_by_title_director_and_actors(query) : Film.all
     render json: @films
   end
 

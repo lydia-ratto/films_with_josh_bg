@@ -23,6 +23,9 @@ gem "rack-cors"
 
 gem "faker"
 
+# for search
+gem "pg_search"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 

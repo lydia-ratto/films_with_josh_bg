@@ -7,11 +7,10 @@ import { useNavigate } from 'react-router';
 const API_URL = "http://localhost:3000/api/v1/films"
 
 
-function UseFilmList({children}) {
+function UseFilmList({children, searchQuery}) {
   const filmListCtx = useContext(FilmListContext);
   const navigate = useNavigate();
   const { filmList, updateFilmList } = filmListCtx;
-  const { items: prev } = filmList;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,11 +20,16 @@ function UseFilmList({children}) {
           loading: false,
         }
         );
-        const response = await axios.get(API_URL)
+        let apiUrl = API_URL
+
+        if (searchQuery) {
+          apiUrl += `?query=${searchQuery}`;
+        }
+
+        const response = await axios.get(apiUrl)
         const data = response.data
         updateFilmList({
-          ...filmList,
-          items: prev.concat(data)
+          items: data
         })
       } catch (onError) {
         filmListCtx.updateFilmList({
@@ -36,7 +40,7 @@ function UseFilmList({children}) {
       }
     };
     fetchData();
-  }, []);
+  }, [searchQuery]);
 
   return <>{children}</>;
 }
