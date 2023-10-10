@@ -1,6 +1,5 @@
 import React from "react"
 import {
-  BrowserRouter,
   Route,
   Routes,
 } from 'react-router-dom';
@@ -11,46 +10,60 @@ import FilmPage from "./components/pages/FilmPage"
 import Navbar from "./components/sections/Navbar"
 import { Box } from "@chakra-ui/react";
 import Register from "./components/pages/RegisterPage";
+import Login from "./components/pages/LoginPage";
+import useUserAuth from "./components/hooks/useAuth";
 
 function AppRoutes() {
+  const { user, login, logout, register } = useUserAuth();
+
   return (
-    <BrowserRouter>
-    <Navbar />
-      <Box margin="90px 130px">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage />
-          }
-        />
-        <Route
-          path="/films"
-          element={
-            <AllFilmsPage />
-          }
-        />
-        <Route
-          path="/films/:id"
-          element={
-            <FilmPage />
-          }
-        />
-        <Route
-          path="/films/add"
-          element={
-            <AddFilmPage />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <Register />
-          }
-        />
-        </Routes>
-      </Box>
-    </BrowserRouter>
+    <div>
+      <Navbar 
+      logout={logout}
+      user={user}/>
+        <Box margin="90px 130px">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage />
+            }
+            />
+          <Route
+            path="/films"
+            element={
+              <AllFilmsPage />
+            }
+            />
+          <Route
+            path="/films/:id"
+            element={
+              <FilmPage />
+            }
+            />
+          <Route
+            path="/films/add"
+            element={
+              <AddFilmPage />
+            }
+            />
+          <Route
+            path="/register"
+            element={
+              <Register register={register} />
+            }
+            />
+          <Route
+            path="/login"
+            element={
+              <Login 
+              login={login}
+              user={user} />
+            }
+            />
+          </Routes>
+        </Box>
+      </div>
   )
 }
 

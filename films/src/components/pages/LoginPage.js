@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import useAuth from '../hooks/useAuth';
 
-const Login = () => {
+function Login() {
+  const {login} = useAuth()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
-  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,32 +18,23 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post(
-        '/users/sign_in', // Replace with the actual login endpoint on your Rails API
-        {
-          user: {
-            email: formData.email,
-            password: formData.password,
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        // Successful login
-        // You can handle the successful login here, such as setting user state, storing tokens, or redirecting to a dashboard.
-        console.log('Login successful');
+    const creds = {
+      user: {
+        email: formData.email,
+        password: formData.password,
       }
-    } catch (error) {
-      setError('Invalid credentials. Please try again.'); // Set an error message for invalid login attempts.
-      console.error('Login error:', error);
     }
+
+    await login(creds);
+    setFormData({
+      email: '',
+      password: '',
+    });
   };
 
   return (
     <div>
       <h2>Login</h2>
-      {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>

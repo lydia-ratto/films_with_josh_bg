@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import useAuth from '../hooks/useAuth';
 
-const Register = () => {
-  const navigate = useNavigate();
+function Register() {
+  const { register } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
   const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -21,29 +18,21 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const userData = {
+      user: {
+        email: formData.email,
+        password: formData.password,
+      },
+    };
 
     try {
-      const response = await axios.post(
-        'http://localhost:3000/users', // Replace with the actual registration endpoint on your Rails API
-        {
-          user: {
-            email: formData.email,
-            password: formData.password,
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        // Successful registration
-        // You can handle the successful registration here, such as displaying a success message or redirecting to a login page.
-        setSuccessMessage('Registration successful. You can now log in.');
-        setError(null); // Clear any previous error messages
-        setFormData({ email: '', password: '' }); // Clear the form fields
-        navigate('/films')
-      }
+      await register(userData);
+      setFormData({
+        email: '',
+        password: '',
+      });
     } catch (error) {
-      setError('Registration failed. Please try again.'); // Set an error message for failed registration attempts.
-      console.error('Registration error:', error);
+      setError(error.message);
     }
   };
 
@@ -51,7 +40,6 @@ const Register = () => {
     <div>
       <h2>Register</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
@@ -77,6 +65,6 @@ const Register = () => {
       </form>
     </div>
   );
-};
+}
 
 export default Register;

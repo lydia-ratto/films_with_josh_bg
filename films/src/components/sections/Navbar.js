@@ -1,8 +1,20 @@
 import { Box, Image, Flex, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom'
 import React from 'react'
+import Logout from './LogoutButton';
+import useAuth from '../hooks/useAuth';
 
-function Navbar() {
+function Navbar( {logout} ) {
+
+  const { user } = useAuth();
+  const loginLink = user ? (
+     <Logout logout={logout}/>  
+  ) : (
+  <Link to="/login">
+    <h3 className={'navlink'}> LOGIN </h3>
+  </Link> 
+  );
+
   return (
     <Flex 
     className="navbar" 
@@ -34,14 +46,14 @@ function Navbar() {
       alignItems={'center'}
       justifyContent={'end'} gap={'40'}
       className="navbar--right">
-        <Link to='/films/add'>
+       { user &&  <Link to='/films/add'>
           <Button
             size={'lg'}
           >
             Add review
           </Button>
-        </Link>
-        <h3 className={'navlink'}> ABOUT </h3>
+        </Link> }
+        {loginLink}
       </Flex>
     </Flex>
   )
