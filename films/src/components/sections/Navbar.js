@@ -4,10 +4,10 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <Flex 
-    className="navbar" 
-    justifyContent='space-between' 
-    alignItems='center' 
+    <Flex
+    className="navbar"
+    justifyContent='space-between'
+    alignItems='center'
     width='100%'
     height='20'
     pb='4'
@@ -37,6 +37,7 @@ function Navbar() {
         <Link to='/films/add'>
           <Button
             size={'lg'}
+            variant='primary'
           >
             Add review
           </Button>

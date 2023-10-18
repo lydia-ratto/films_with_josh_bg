@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Input, Button, VStack, Text } from '@chakra-ui/react';
+import { Box, Input, Button, VStack, Text, Heading, FormControl, Flex, Checkbox } from '@chakra-ui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 
@@ -66,14 +66,16 @@ const FilmFinder = () => {
   };
 
   return (
-    <Box p={4}>
+    <Box>
+      <Heading textStyle="h1">Add review</Heading>
       <VStack spacing={4} align="center">
         <Input
+          variant="filled"
           placeholder="Enter a film name"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <Button onClick={handleSearch}>Find Films</Button>
+        <Button onClick={handleSearch} variant="primary" size={'lg'}>Find film</Button>
         {films.length > 0 ? (
           <VStack spacing={2} align="start">
             {films.map((film) => (
@@ -90,65 +92,70 @@ const FilmFinder = () => {
           <Text>No films found</Text>
         )}
       </VStack>
-      
+
       {selectedFilm && (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Film Title:
-            <input
+        <FormControl onSubmit={handleSubmit}>
+          <Flex direction="column" alignItems="center">
+            <Input
+              variant="filled"
               type="text"
               value={selectedFilm.Title}
               readOnly
               name="imdb_id"
             />
-          </label>
-          <label>
-            Josh Score:
-            <input
-              type="number"
-              value={formValues.josh_score}
-              onChange={handleFormChange}
-              name="josh_score"
-            />
-          </label>
-          <label>
-            Josh Notes:
-            <input
-              type="text"
-              value={formValues.josh_notes}
-              onChange={handleFormChange}
-              name="josh_notes"
-            />
-          </label>
-          <label>
-            Date Watched:
-            <input
+            <Input
+              variant="filled"
               type="date"
               value={formValues.date_watched}
               onChange={handleFormChange}
               name="date_watched"
+              placeholder="When was it?"
             />
-          </label>
-          <label>
-            Seen Before:
-            <input
+            <Checkbox
+              variant="empty"
               type="checkbox"
               value={formValues.seen_before}
               onChange={handleFormChange}
               name="seen_before"
-            />
-          </label>
-          <label>
-            Location Watched:
-            <input
+              spacing="1rem"
+              mt="20px"
+            >
+              Seen before
+            </Checkbox>
+            <Input
+              variant="filled"
               type="text"
               value={formValues.location_watched}
               onChange={handleFormChange}
               name="location_watched"
+              placeholder="Where were you?"
             />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
+            <Input
+              variant="filled"
+              type="number"
+              value={formValues.josh_score}
+              onChange={handleFormChange}
+              name="josh_score"
+              placeholder="What's your score?"
+            />
+            <Input
+              variant="filled"
+              type="text"
+              value={formValues.josh_notes}
+              onChange={handleFormChange}
+              name="josh_notes"
+              placeholder="Extra notes"
+            />
+            <Button
+              type="submit"
+              variant='primary'
+              size={'lg'}
+              mt="25px"
+            >
+              Submit
+            </Button>
+          </Flex>
+        </FormControl>
       )}
     </Box>
   );
