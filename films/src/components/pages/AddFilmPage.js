@@ -111,17 +111,6 @@ const FilmFinder = () => {
               name="date_watched"
               placeholder="When was it?"
             />
-            <Checkbox
-              variant="empty"
-              type="checkbox"
-              value={formValues.seen_before}
-              onChange={handleFormChange}
-              name="seen_before"
-              spacing="1rem"
-              mt="20px"
-            >
-              Seen before
-            </Checkbox>
             <Input
               variant="filled"
               type="text"
@@ -140,12 +129,23 @@ const FilmFinder = () => {
             />
             <Input
               variant="filled"
-              type="text"
+              type="textarea"
               value={formValues.josh_notes}
               onChange={handleFormChange}
               name="josh_notes"
               placeholder="Extra notes"
             />
+            <Checkbox
+              variant="empty"
+              type="checkbox"
+              value={formValues.seen_before}
+              onChange={handleFormChange}
+              name="seen_before"
+              spacing="1rem"
+              mt="20px"
+            >
+              Seen before
+            </Checkbox>
             <Button
               type="submit"
               variant='primary'
