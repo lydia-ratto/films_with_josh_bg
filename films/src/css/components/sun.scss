@@ -7,7 +7,14 @@
 
 @media (min-width: 481px) {
   .suns {
-    top: 4%;
+    top: 80%;
+    animation-name: sun-shift-up;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-delay: .3s;
+  }
+  @keyframes sun-shift-up {
+    from{ transform: translateY(80%)} to{transform: translateY(-150%);}
   }
 }
 

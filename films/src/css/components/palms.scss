@@ -6,11 +6,18 @@
 
 @media (min-width: 481px) {
   .palms {
-    left: 75%;
-    width: 22%;
-    bottom: 0;
+    left: 78%;
+    width: 25%;
+    top: 125%;
     position: absolute;
     z-index: 2;
+    animation-name: palms-shift-up;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+  }
+  @keyframes palms-shift-up {
+    from{ transform: translateY(125%)} to{transform: translateY(-145%);}
   }
 }
 

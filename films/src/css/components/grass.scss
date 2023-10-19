@@ -7,23 +7,43 @@
 @media (min-width: 481px) {
   .grass-dark {
     position: absolute;
-    width: 80%;
-    bottom: 0;
-    left: -80px;
+    width: 100%;
+    bottom: 10%;
+    left: -130%;
+    animation-name: shift-right;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
   }
   .grass-light {
     position: absolute;
-    width: 60%;
-    bottom: 20%;
-    right: 0;
-    right: -80px;
+    width: 70%;
+    bottom: 30%;
+    left: 110%;
+    animation-name: shift-left;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
   }
-
   .chorleywood {
     width: 30%;
-    left: 3%;
     position: absolute;
-    top: 52%;
+    top: 40%;
+    left: -50%;
     z-index: 11;
+    animation-name: sign-shift-right;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 2.5s;
+  }
+  @keyframes shift-right {
+    from{ transform: translateX(-130%)} to{transform: translate(120%);}
+  }
+  @keyframes sign-shift-right {
+    from{ transform: translateX(-50%)} to{transform: translate(150%);}
+  }
+  @keyframes shift-left {
+    from{ transform: translateX(110%)} to{transform: translate(-100%);}
   }
 }
