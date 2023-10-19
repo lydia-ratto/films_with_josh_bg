@@ -69,6 +69,8 @@ const FilmFinder = () => {
     <Box>
       <Heading textStyle="h1">Add review</Heading>
       <VStack spacing={4} align="center">
+        {selectedFilm == null ? (
+        <>
         <Input
           variant="filled"
           placeholder="Enter a film name"
@@ -91,6 +93,8 @@ const FilmFinder = () => {
         ) : (
           <Text>No films found</Text>
         )}
+        </>
+        ) : ''}
       </VStack>
 
       {selectedFilm && (

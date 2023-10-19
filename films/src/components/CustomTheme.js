@@ -126,7 +126,6 @@ export const CustomTheme = extendTheme({
             },
             _hover: {
               borderColor: "brand.brown",
-              backgroundColor: 'white',
             },
             _checked: {
               bg: 'brand.orange',
