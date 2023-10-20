@@ -16,10 +16,10 @@ function Navbar( {logout} ) {
   );
 
   return (
-    <Flex 
-    className="navbar" 
-    justifyContent='space-between' 
-    alignItems='center' 
+    <Flex
+    className="navbar"
+    justifyContent='space-between'
+    alignItems='center'
     width='100%'
     height='20'
     pb='4'
@@ -49,6 +49,7 @@ function Navbar( {logout} ) {
        { user &&  <Link to='/films/add'>
           <Button
             size={'lg'}
+            variant='primary'
           >
             Add review
           </Button>

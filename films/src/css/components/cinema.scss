@@ -8,9 +8,18 @@
 
 @media (min-width: 481px) {
   .cinema {
-    width: 43%;
-    top: 63%;
+    width: 55%;
+    top: 85%;
+    animation-name: shift-up;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
   }
+
+  @keyframes shift-up {
+    from{ transform: translateY(85%)} to{transform: translateY(-50%);}
+  }
+
 }
 
 .cinema {

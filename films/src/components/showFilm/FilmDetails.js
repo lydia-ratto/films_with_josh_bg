@@ -75,16 +75,17 @@ function FilmDetails({ filmData }) {
           </Flex>
           <Box mt="50px">
             <Heading
-              fontSize="2xl"
+              textStyle="h3"
               textAlign="left"
-              fontWeight="300"
               mb="30px"
             >
               What Josh says:
             </Heading>
             <Text
-              borderRadius="3rem"
-              border="7px solid #A14C2A"
+              borderColor='brand.brown'
+              borderWidth='7px'
+              borderStyle='solid'
+              borderRadius='30px'
               padding="40px"
               color="black"
               fontWeight="400"
