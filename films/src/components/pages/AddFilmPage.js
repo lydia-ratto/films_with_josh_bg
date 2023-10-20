@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Input, Button, VStack, Text, Heading, FormControl, Flex, Checkbox } from '@chakra-ui/react';
+import { Box, Input, Button, VStack, Text, Heading, Flex, Checkbox } from '@chakra-ui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 
@@ -49,6 +49,7 @@ const FilmFinder = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("handling submit");
     const payload = {
       ...formValues,
       imdb_id: selectedFilm.imdbID, // Set the imdb_id field with the selectedFilm's imdbID
@@ -98,7 +99,7 @@ const FilmFinder = () => {
       </VStack>
 
       {selectedFilm && (
-        <FormControl onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <Flex direction="column" alignItems="center">
             <Input
               variant="filled"
@@ -159,7 +160,7 @@ const FilmFinder = () => {
               Submit
             </Button>
           </Flex>
-        </FormControl>
+        </form>
       )}
     </Box>
   );
