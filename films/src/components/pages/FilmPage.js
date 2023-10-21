@@ -1,7 +1,7 @@
 import React from "react";
 import { FilmContextProvider } from "../context/FilmContext";
 import UseFilm from "../hooks/useFilm";
-import FilmDetails from "../showFilm/FilmDetails";
+import FilmDetails from "./showFilm/FilmDetails";
 
 function FilmPage() {
   return (

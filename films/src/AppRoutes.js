@@ -12,6 +12,7 @@ import { Box } from "@chakra-ui/react";
 import Register from "./components/pages/RegisterPage";
 import Login from "./components/pages/LoginPage";
 import useUserAuth from "./components/hooks/useAuth";
+import EditFilmPage from "./components/pages/EditFilmPage";
 
 function AppRoutes() {
   const { user, login, logout, register } = useUserAuth();
@@ -39,6 +40,12 @@ function AppRoutes() {
             path="/films/:id"
             element={
               <FilmPage />
+            }
+            />
+          <Route
+            path="/films/edit/:id"
+            element={
+              <EditFilmPage />
             }
             />
           <Route
