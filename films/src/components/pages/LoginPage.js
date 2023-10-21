@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
+import { Input, Button, Text, Heading, Flex } from '@chakra-ui/react';
+import { Link } from 'react-router-dom'
+
 
 function Login() {
   const {login} = useAuth()
@@ -34,30 +37,48 @@ function Login() {
 
   return (
     <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <Heading>Login</Heading>
+      <Flex flexDirection="column" alignItems="center">
+        <form onSubmit={handleSubmit}>
+          <Flex flexDirection="column" alignItems="center">
+            <Text variant="label">Email:</Text>
+            <Input
+              variant="filled"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <Text variant="label">Password:</Text>
+            <Input
+              variant="filled"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <Button
+              variant="primaryForm"
+              type="submit"
+            >
+              Login
+            </Button>
+          </Flex>
+        </form>
+          <Text
+            mt="30px"
+          >
+            Don't have an account?{' '}
+            <Link
+              to='/register'
+              variant='orange'
+            >
+                Register here
+            </Link>
+          </Text>
+      </Flex>
     </div>
   );
 };

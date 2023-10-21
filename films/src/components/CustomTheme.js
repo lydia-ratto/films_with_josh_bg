@@ -48,15 +48,43 @@ export const CustomTheme = extendTheme({
     },
   },
   components: {
+    Text: {
+      variants: {
+        label: {
+          mt: "30px"
+        }
+      }
+    },
+    Link: {
+      variants: {
+        orange: {
+          fontWeight: 'bold'
+        }
+      }
+    },
     Button: {
       baseStyle: {
-          borderRadius: '30px',
-        },
+        borderRadius: '30px',
+        width: "min-content"
+      },
       variants: {
-        "primary": {
+        primary: {
           backgroundColor: "brand.orange",
           color: "white",
-          width: "min-content"
+        },
+        secondary: {
+          backgroundColor: "brand.orange",
+          color: "white",
+        },
+        primaryForm: {
+          backgroundColor: "brand.orange",
+          color: "white",
+          mt: "30px"
+        },
+        secondaryForm: {
+          backgroundColor: "brand.brown",
+          color: "white",
+          mt: "30px"
         }
       }
     },
