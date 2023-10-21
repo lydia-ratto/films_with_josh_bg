@@ -1,6 +1,6 @@
 class Api::V1::FilmsController < ApplicationController
   include FilmsConcern
-  before_action :set_film, only: %i[show edit]
+  before_action :set_film, only: %i[show update destroy]
 
   def index
     query = params[:query]
@@ -9,7 +9,7 @@ class Api::V1::FilmsController < ApplicationController
   end
 
   def show
-    set_film
+    render json: @film
   end
 
   def create
@@ -28,15 +28,27 @@ class Api::V1::FilmsController < ApplicationController
     render json: @film
   end
 
-  def edit
-    set_film
+  def update
+    if @film.update(film_params)
+      render json: @film, status: :ok
+    else
+      render json: { errors: @film.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @film
+      @film.destroy
+      render status: :ok
+    else
+      render json: { error: 'Film review not found' }, status: :not_found
+    end
   end
 
   private
 
   def set_film
     @film = Film.find(params[:id])
-    render json: @film
   end
 
   def film_params

@@ -1,9 +1,14 @@
 import React from "react"
 import { Flex, Box, Image, Heading, Text } from '@chakra-ui/react'
+import { Link, useParams } from "react-router-dom";
+import DeleteFilm from "../../sections/DeleteFilm";
 
 function FilmDetails({ filmData }) {
+  const { id } = useParams();
   return (
     <Box>
+      <Link to={`/films/edit/${id}`}>Edit Film Review</Link>
+      <DeleteFilm />
       <Flex className="show--top">
         <Image
           w="384px"
