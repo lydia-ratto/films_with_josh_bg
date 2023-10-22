@@ -9,14 +9,14 @@
 @media (min-width: 481px) {
   .josh-hero {
     width: 30%;
-    top: 82%;
+    top: 92%;
     animation-name: josh-shift-up;
     animation-duration: 4s;
     animation-fill-mode: forwards;
     animation-delay: 2s;
   }
   @keyframes josh-shift-up {
-    from{ transform: translateY(82%)} to{transform: translateY(-115%);}
+    from{ transform: translateY(92%)} to{transform: translateY(-150%);}
   }
 }
 
