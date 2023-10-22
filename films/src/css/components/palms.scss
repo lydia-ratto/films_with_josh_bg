@@ -8,16 +8,17 @@
   .palms {
     left: 78%;
     width: 25%;
-    top: 125%;
+    top: 5%;
+    left: 125%;
     position: absolute;
     z-index: 2;
-    animation-name: palms-shift-up;
+    animation-name: palms-shift-left;
     animation-duration: 4s;
     animation-fill-mode: forwards;
     animation-delay: 2s;
   }
-  @keyframes palms-shift-up {
-    from{ transform: translateY(125%)} to{transform: translateY(-137%);}
+  @keyframes palms-shift-left {
+    from{ transform: translateX(125%)} to{transform: translate(-180%);}
   }
 }
 
