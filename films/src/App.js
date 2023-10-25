@@ -11,7 +11,7 @@ function App() {
       <div className="App" style={{backgroundColor: '#F7D9AE'}}>
         <ToastContainer
         position="top-right"
-        autoClose={1500}
+        autoClose={3000}
         limit={3}
         hideProgressBar
         newestOnTop={false}

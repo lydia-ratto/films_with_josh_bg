@@ -8,13 +8,13 @@ function Navbar( {logout} ) {
 
   const { user } = useAuth();
   const loginLink = user ? (
-     <Logout logout={logout}/>  
-  ) : (
-  <Link to="/login">
+    <Logout logout={logout}/>  
+    ) : (
+      <Link to="/login">
     <h3 className={'navlink'}> LOGIN </h3>
   </Link> 
   );
-
+  
   return (
     <Flex
     className="navbar"
@@ -46,7 +46,7 @@ function Navbar( {logout} ) {
       alignItems={'center'}
       justifyContent={'end'} gap={'40'}
       className="navbar--right">
-       { user &&  <Link to='/films/add'>
+       { user?.email==="josh@bung.com" &&  <Link to='/films/add'>
           <Button
             size={'lg'}
             variant='primary'

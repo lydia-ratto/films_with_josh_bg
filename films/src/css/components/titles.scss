@@ -1,0 +1,5 @@
+@import "~sass-text-stroke/_text-stroke";
+
+.yellow-outline {
+  @include text-stroke(3, #FFE66C, 0);
+}

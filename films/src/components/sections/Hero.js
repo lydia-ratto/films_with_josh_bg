@@ -4,7 +4,7 @@ import { Box, Heading, Image } from "@chakra-ui/react";
 function Hero() {
   return (
     <Box className="hero-banner">
-      <Box className="hero-title">
+      <Box className="hero-title yellow-outline">
         <Heading as="h1" textSt>
           <Box as="span" className="films-text">
             FILMS 

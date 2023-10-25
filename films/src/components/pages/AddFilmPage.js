@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Box, Input, Button, VStack, Text, Heading, Flex, Checkbox } from '@chakra-ui/react';
+import { Box, Input, Button, VStack, Text, Heading, Flex, Textarea, NumberInput, NumberInputField, FormControl, FormLabel } from '@chakra-ui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 const API_URL = "http://localhost:3000/api/v1/films"
 
@@ -37,8 +38,10 @@ const FilmFinder = () => {
     try {
       const response = await axios.request(options);
       setFilms(response.data.Search);
+      if (!response.data.Search || response.data.Search.length < 1) {toast.info(`No films found for ${searchTerm}. Try searching whole words - partial words aren't supported`)}
     } catch (error) {
       console.error(error);
+      toast.error(error)
     }
   };
 
@@ -58,11 +61,13 @@ const FilmFinder = () => {
     axios.post(API_URL, payload)
       .then((response) => {
         console.log(response.data);
+        toast.success(`Review for ${response.data.title} created`)
         navigate(`/films/${response.data.id}`)
             })
       .catch((error) => {
         console.error(error);
         // Handle the error case here
+        toast.error(`Shit! Something went wrong. ${error}`)
       });
   };
 
@@ -78,79 +83,102 @@ const FilmFinder = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <Button onClick={handleSearch} variant="primary" size={'lg'}>Find film</Button>
-        {films.length > 0 ? (
+        <Button onClick={handleSearch} variant="primary" size={'lg'} type='submit'>Find film</Button>
+        {films?.length > 0 ? (
           <VStack spacing={2} align="start">
             {films.map((film) => (
-              <Text
+              <Button
                 key={film.imdbID}
                 onClick={() => setSelectedFilm(film)}
-                cursor="pointer"
-              >
-                {film.Title}
-              </Text>
+                width={'400px'}
+                variant={'tertiary'}  
+                      >
+                {`${film.Title} - ${film.Year}`}
+              </Button>
             ))}
           </VStack>
         ) : (
-          <Text>No films found</Text>
+          <Text>Search to find a film to review</Text>
         )}
         </>
-        ) : ''}
+        ) : 
+        <Button
+        variant='secondary'
+        size='lg'
+        onClick={() => setSelectedFilm(null)}>
+          Change film
+          </Button>}
       </VStack>
 
       {selectedFilm && (
         <form onSubmit={handleSubmit}>
           <Flex direction="column" alignItems="center">
-            <Input
-              variant="filled"
-              type="text"
-              value={selectedFilm.Title}
-              readOnly
-              name="imdb_id"
-            />
-            <Input
-              variant="filled"
-              type="date"
-              value={formValues.date_watched}
-              onChange={handleFormChange}
-              name="date_watched"
-              placeholder="When was it?"
-            />
-            <Input
-              variant="filled"
-              type="text"
-              value={formValues.location_watched}
-              onChange={handleFormChange}
-              name="location_watched"
-              placeholder="Where were you?"
-            />
-            <Input
-              variant="filled"
+            <FormControl position={'unset'} width={'unset'}>
+              <FormLabel margin={'10px 0px 5px 10px'}
+              >Film Title</FormLabel>
+              <Input
+                variant="filled"
+                type="text"
+                value={selectedFilm.Title}
+                readOnly
+                name="imdb_id"
+                marginTop={'0px'}
+              />
+            </FormControl>
+            <FormControl position={'unset'} width={'unset'}>
+              <FormLabel margin={'10px 0px 5px 10px'} >Date Watched</FormLabel>
+              <Input
+                variant="filled"
+                type="date"
+                value={formValues.date_watched}
+                onChange={handleFormChange}
+                name="date_watched"
+                placeholder="When was it?"
+                marginTop={'0px'}
+              />
+            </FormControl>
+            <FormControl position={'unset'} width={'unset'}>
+              <FormLabel margin={'10px 0px 5px 10px'} >Location Watched</FormLabel>
+              <Input
+                variant="filled"
+                type="text"
+                value={formValues.location_watched}
+                onChange={handleFormChange}
+                name="location_watched"
+                placeholder="Where were you?"
+                marginTop={'0px'}
+              />
+            </FormControl>
+            <FormControl position={'unset'} width={'unset'}>
+              <FormLabel margin={'10px 0px 5px 10px'} >Josh Score</FormLabel>
+              <NumberInput
+            defaultValue={1}
+            min={1}
+            max={10}
+            step={1}
+            variant="filled"
+            value={formValues.josh_score}
+            onChange={(value) => handleFormChange({ target: { name: 'josh_score', value } })}
+          >
+            <NumberInputField 
               type="number"
-              value={formValues.josh_score}
-              onChange={handleFormChange}
               name="josh_score"
-              placeholder="What's your score?"
+              marginTop="0px"
             />
-            <Input
-              variant="filled"
-              type="textarea"
-              value={formValues.josh_notes}
-              onChange={handleFormChange}
-              name="josh_notes"
-              placeholder="Extra notes"
-            />
-            <Checkbox
-              variant="empty"
-              type="checkbox"
-              value={formValues.seen_before}
-              onChange={handleFormChange}
-              name="seen_before"
-              spacing="1rem"
-              mt="20px"
-            >
-              Seen before
-            </Checkbox>
+          </NumberInput>
+            </FormControl>
+            <FormControl position={'unset'} width={'unset'}>
+              <FormLabel margin={'10px 0px 5px 10px'} >Josh Notes</FormLabel>
+              <Textarea
+                variant="filled"
+                value={formValues.josh_notes}
+                onChange={handleFormChange}
+                name="josh_notes"
+                placeholder="Extra notes"
+                minHeight="200px"
+                marginTop={'0px'}
+              />
+            </FormControl>
             <Button
               type="submit"
               variant='primary'

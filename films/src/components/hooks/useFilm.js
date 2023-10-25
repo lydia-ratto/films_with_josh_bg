@@ -40,6 +40,9 @@ function UseFilm({children}) {
           joshNotes: data.josh_notes,
           filmLengthMins: data.film_length_mins,
           ageRating: data.age_rating,
+          summary: data.summary,
+          genres: data.genres,
+          director: data.director
         })
       } catch (onError) {
         filmCtx.updateFilm({

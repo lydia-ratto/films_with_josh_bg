@@ -24,8 +24,12 @@ function DeleteFilm() {
 
   return (
     <Box>
-      <Button onClick={handleDelete} isLoading={isLoading}>
-        Delete film review
+      <Button 
+      onClick={handleDelete} 
+      isLoading={isLoading}
+      variant={"primary"}
+      margin="1">
+        Delete Review
       </Button>
     </Box>
   );
