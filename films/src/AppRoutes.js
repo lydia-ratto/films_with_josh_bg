@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import {
   Route,
   Routes,
@@ -16,60 +16,80 @@ import EditFilmPage from "./components/pages/EditFilmPage";
 
 function AppRoutes() {
   const { user, login, logout, register } = useUserAuth();
+  const currentPath = window.location.pathname;
+  const [showNav, setShowNav] = useState(false);
+  // const showNavbar = currentPath !== '/';
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  })
 
   return (
     <div>
-      <Navbar 
+      <Navbar
+      className={`navbar ${showNav || currentPath !== '/' ? 'show' : ''}`}
       logout={logout}
-      user={user}/>
-        <Box margin="90px 130px">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage />
-            }
-            />
-          <Route
-            path="/films"
-            element={
-              <AllFilmsPage />
-            }
-            />
-          <Route
-            path="/films/:id"
-            element={
-              <FilmPage />
-            }
-            />
-          <Route
-            path="/films/edit/:id"
-            element={
-              <EditFilmPage />
-            }
-            />
-          <Route
-            path="/films/add"
-            element={
-              <AddFilmPage />
-            }
-            />
-          <Route
-            path="/register"
-            element={
-              <Register register={register} />
-            }
-            />
-          <Route
-            path="/login"
-            element={
-              <Login 
-              login={login}
-              user={user} />
-            }
-            />
-          </Routes>
-        </Box>
+      user={user}
+      />
+      <Box margin="90px 130px">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage />
+          }
+          />
+        <Route
+          path="/films"
+          element={
+            <AllFilmsPage />
+          }
+          />
+        <Route
+          path="/films/:id"
+          element={
+            <FilmPage />
+          }
+          />
+        <Route
+          path="/films/edit/:id"
+          element={
+            <EditFilmPage />
+          }
+          />
+        <Route
+          path="/films/add"
+          element={
+            <AddFilmPage />
+          }
+          />
+        <Route
+          path="/register"
+          element={
+            <Register register={register} />
+          }
+          />
+        <Route
+          path="/login"
+          element={
+            <Login
+            login={login}
+            user={user} />
+          }
+          />
+        </Routes>
+      </Box>
       </div>
   )
 }

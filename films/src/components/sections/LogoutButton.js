@@ -10,7 +10,7 @@ function Logout({ logout }) {
   };
 
   return (
-    <button className='navlink' onClick={handleLogout}>LOGOUT</button>
+    <button onClick={handleLogout} className={'navlink'}>LOG OUT</button>
   );
 };
 
