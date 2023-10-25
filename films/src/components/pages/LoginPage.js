@@ -73,9 +73,9 @@ function Login() {
             Don't have an account?{' '}
             <Link
               to='/register'
-              variant='orange'
+              className='register-link'
             >
-                Register here
+                 Register here
             </Link>
           </Text>
       </Flex>

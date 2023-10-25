@@ -17,6 +17,7 @@ function SearchInput({ onSearch }) {
         placeholder="Search films..."
         value={query}
         onChange={handleInputChange}
+        variant="filled"
       />
     </Box>
   );

@@ -42,7 +42,11 @@ function AuthProvider({ children }) {
         setUser(userData);
         localStorage.setItem('user', JSON.stringify(userData));
         navigate("/films");
-        toast.success("Logged in successfully");
+        if (userData.email === "josh@bung.com") {
+          toast.success("Oli Pye is always watching");
+        } else {
+          toast.success("Logged in successfully");
+        }
       } else {
         // Handle non-200 status codes
         handleServerError(response);

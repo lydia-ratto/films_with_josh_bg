@@ -18,7 +18,8 @@ export const CustomTheme = extendTheme({
       brand: {
         'orange': '#DC6738',
         'brown': '#A14C2A',
-        'light-grey': '#DCD6B5'
+        'light-grey': '#DCD6B5',
+        'beige': '#FFEDD2'
       },
       primaryDark: '#6C331C',
       primaryBackground: '#F7D9AE',
@@ -65,7 +66,11 @@ export const CustomTheme = extendTheme({
     Button: {
       baseStyle: {
         borderRadius: '30px',
-        width: "min-content"
+        width: "min-content",
+        transition: 'all 0.2s ease-in-out',
+        _hover: {
+          transform: 'scale(1.02)'
+        }
       },
       variants: {
         primary: {
@@ -73,8 +78,11 @@ export const CustomTheme = extendTheme({
           color: "white",
         },
         secondary: {
-          backgroundColor: "brand.orange",
+          backgroundColor: "brand.brown",
           color: "white",
+        },
+        tertiary: {
+          backgroundColor: "brand.light-grey"
         },
         primaryForm: {
           backgroundColor: "brand.orange",
@@ -170,6 +178,80 @@ export const CustomTheme = extendTheme({
       defaultProps: {
         variant: null
       }
-    }
+    },
+    Textarea: {
+      baseStyle: {
+        borderRadius: '30px',
+        backgroundColor: 'white',
+        mt: '30px',
+        p: '1.5rem 1.5rem',
+        fontWeight: "900",
+        width: '30rem',
+        textAlign: 'left',
+        color: "black",
+        resize: 'resize',
+        _placeholder: {
+          color: "brand.light-grey",
+          textAlign: "center"
+        }
+      },
+      variants: {
+        filled: {
+          borderColor: 'brand.orange',
+          borderWidth: '7px',
+          background: 'white',
+          _hover: {
+            borderColor: "brand.brown",
+            backgroundColor: 'white',
+          },
+          _focusVisible: {
+            borderColor: "brand.brown",
+            backgroundColor: 'white',
+          },
+        },
+      },
+      sizes: {},
+      defaultProps: {
+        variant: null
+      }
+    },
+    NumberInput: {
+      baseStyle: {
+        field: {
+          borderRadius: '30px',
+          backgroundColor: 'white',
+          mt: '30px',
+          p: '1.5rem 1.5rem',
+          fontWeight: "900",
+          width: '30rem',
+          textAlign: 'center',
+          color: "black",
+          _placeholder: {
+            color: "brand.light-grey"
+          }
+        },
+      },
+      variants: {
+        filled: {
+          field: {
+            borderColor: 'brand.orange',
+            borderWidth: '7px',
+            background: 'white',
+            _hover: {
+              borderColor: "brand.brown",
+              backgroundColor: 'white',
+            },
+            _focusVisible: {
+              borderColor: "brand.brown",
+              backgroundColor: 'white',
+            },
+          },
+        },
+      },
+      sizes: {},
+      defaultProps: {
+        variant: null
+      }
+    },
   },
 })

@@ -18,7 +18,7 @@ function AllFilms() {
         <Flex 
         direction={"column"}
         alignItems={"center"}>
-          <Heading>Find a film review</Heading>
+          <Heading className="yellow-outline">Find a film review</Heading>
           <SearchInput onSearch={handleSearch} />
           <AllFilmsContent />
         </Flex>
