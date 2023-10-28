@@ -1,2 +1,2 @@
-web: bundle exec puma -C config/puma.rb -w 2
-client: cd films && npm start
+web: bundle exec puma -C config/puma.rb
+release: npm --prefix films run build
