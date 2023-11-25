@@ -91,7 +91,7 @@ function FilmDetails({ filmData }) {
                     width="50px"
                     mr="15px"
                   />
-                  <Text  fontSize="1.5rem" fontWeight="700">{filmData.imdbScore}</Text>
+                  <Text  fontSize="1.5rem" fontWeight="700">{filmData.imdbScore === 0 ? "-" : `${filmData.imdbScore}/10`}</Text>
                 </Flex>
               </Link>
               <Link to={`https://www.rottentomatoes.com/m/${filmData.title.replace(/\s+/g, '_')}`} target="_blank">
@@ -101,7 +101,7 @@ function FilmDetails({ filmData }) {
                       boxSize="35px"
                       mr="15px"
                     />
-                    <Text fontSize="1.5rem" fontWeight="700">{filmData.rottenTomScore} %</Text>
+                    <Text fontSize="1.5rem" fontWeight="700">{filmData.rottenTomScore === 0 ? "-" : filmData.rottenTomScore} %</Text>
                 </Flex>
               </Link>
             </Box>
