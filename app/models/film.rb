@@ -23,7 +23,7 @@ class Film < ApplicationRecord
   validate :date_in_future
 
   def date_in_future
-    if date_watched.present? && date_watched >= Date.today
+    if date_watched.present? && date_watched > Date.today
       errors.add(:date_watched, "can't be in the future")
     end
   end

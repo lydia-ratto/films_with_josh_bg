@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router';
 import FilmContext from '../context/FilmContext';
 
-const API_URL = "http://localhost:3000/api/v1/films"
+const API_URL = "/api/v1/films"
 
 function UseFilm({children}) {
   const filmCtx = useContext(FilmContext);

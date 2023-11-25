@@ -12,7 +12,7 @@ function DeleteFilm() {
     try {
       setIsLoading(true);
       // Make an API request to delete the film by its ID
-      await axios.delete(`http://localhost:3000/api/v1/films/${id}`);
+      await axios.delete(`/api/v1/films/${id}`);
       setIsLoading(false);
       // Redirect to a page after successful deletion, for example, the films list
       navigate('/films');

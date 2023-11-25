@@ -2,7 +2,7 @@ import React from 'react';
 
 class DownloadButton extends React.Component {
   downloadCsv = () => {
-    fetch('http://localhost:3000/api/v1/export_csv.csv') // replace with your API endpoint
+    fetch('/api/v1/export_csv.csv') // replace with your API endpoint
       .then(response => response.blob())
       .then(blob => {
         const url = window.URL.createObjectURL(blob);

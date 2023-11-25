@@ -18,7 +18,6 @@ function AppRoutes() {
   const { user, login, logout, register } = useUserAuth();
   const currentPath = window.location.pathname;
   const [showNav, setShowNav] = useState(false);
-  // const showNavbar = currentPath !== '/';
 
   useEffect(() => {
     const handleScroll = () => {

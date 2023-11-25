@@ -4,7 +4,7 @@ import axios from 'axios';
 import FilmListContext, { initialFilmList } from '../context/FilmListContext';
 import { useNavigate } from 'react-router';
 
-const API_URL = "http://localhost:3000/api/v1/films"
+const API_URL = "/api/v1/films"
 
 
 function UseFilmList({children, searchQuery}) {

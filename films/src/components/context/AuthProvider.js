@@ -12,7 +12,7 @@ function AuthProvider({ children }) {
 
   const register = async (credentials) => {
     try {
-      const response = await axios.post('http://localhost:3000/users', credentials);
+      const response = await axios.post('/users', credentials);
   
       if (response.status === 200) {
         const userData = credentials;
@@ -35,7 +35,7 @@ function AuthProvider({ children }) {
 
   const login = async (credentials) => {
     try {
-      const response = await axios.post('http://localhost:3000/users/sign_in', credentials);
+      const response = await axios.post('/users/sign_in', credentials);
   
       if (response.status === 200) {
         const userData = response.data['user'];

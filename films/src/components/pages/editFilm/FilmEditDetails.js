@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
 import { toast } from 'react-toastify';
 
-const API_URL = "http://localhost:3000/api/v1/films/" 
+const API_URL = "/api/v1/films/" 
 
 const EditFilmDetails = ({ filmData }) => {
   const { id } = useParams();
