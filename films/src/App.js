@@ -3,11 +3,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthProvider from './components/context/AuthProvider';
 import AppRoutes from './AppRoutes';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App" style={{backgroundColor: '#F7D9AE'}}>
         <ToastContainer
         position="top-right"
@@ -26,7 +26,7 @@ function App() {
           <AppRoutes />
         </AuthProvider>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

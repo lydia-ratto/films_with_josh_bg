@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import { useLocation } from 'react-router-dom'
 import {
   Route,
   Routes,
@@ -16,7 +17,7 @@ import EditFilmPage from "./components/pages/EditFilmPage";
 
 function AppRoutes() {
   const { user, login, logout, register } = useUserAuth();
-  const currentPath = window.location.pathname;
+  const currentPath = useLocation().pathname;
   const [showNav, setShowNav] = useState(false);
 
   useEffect(() => {
