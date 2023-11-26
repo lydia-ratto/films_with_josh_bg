@@ -6,7 +6,8 @@
     "react-transition-group": "^4.4.5"
   },
   "engines": {
-    "node": "20.5.1"
+    "node": "20.5.1",
+    "npm": "9.8.0"
   },
   "scripts": {
     "clean": "rm -rf public",
