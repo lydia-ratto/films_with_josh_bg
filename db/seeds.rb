@@ -60,5 +60,5 @@ puts "-----Create Users-------"
 
 User.destroy_all
 
-User.create!(email: "testuser@test.com", encrypted_password: "passtest123")
-User.create!(email: "josh@bung.com", encrypted_password: "passtest123")
+User.create!(email: "testuser@test.com", password: "passtest123")
+User.create!(email: "josh@bung.com", password: "passtest123")
