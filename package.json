@@ -1,13 +1,8 @@
 {
-  "dependencies": {
-    "aos": "^2.3.4",
-    "react-router": "^6.14.2",
-    "react-router-dom": "^6.14.2",
-    "react-transition-group": "^4.4.5"
-  },
+    "name": "heroku-deploy",
+    "description": "Build scripts for Heroku",
   "engines": {
-    "node": "21.2.0",
-    "npm": "10.2.3"
+    "node": "21.2.0"
   },
   "scripts": {
     "clean": "rm -rf public",
