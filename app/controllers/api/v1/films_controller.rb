@@ -5,6 +5,7 @@ class Api::V1::FilmsController < ApplicationController
   def index
     query = params[:query]
     @films = query ? Film.search_by_title_director_and_actors(query) : Film.all
+    @films = @films.order(date_watched: :desc)
     render json: @films
   end
 

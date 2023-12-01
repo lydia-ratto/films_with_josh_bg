@@ -1,5 +1,5 @@
 import { Box, Image, Flex, Button } from '@chakra-ui/react';
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import React from 'react'
 import Logout from './LogoutButton';
 import useAuth from '../hooks/useAuth';
@@ -7,6 +7,10 @@ import useAuth from '../hooks/useAuth';
 function Navbar( {className, logout} ) {
 
   const { user } = useAuth();
+  const location = useLocation();
+
+  const isAddReviewPath = location.pathname === '/films/add';
+
   const loginLink = user ? (
     <Logout logout={logout}/>  
     ) : (
@@ -46,7 +50,7 @@ function Navbar( {className, logout} ) {
       alignItems={'center'}
       justifyContent={'end'} gap={'40'}
       className="navbar--right">
-       { user?.email==="josh@bung.com" &&  <Link to='/films/add'>
+       { user?.email==="josh@bung.com" && !isAddReviewPath && <Link to='/films/add'>
           <Button
             size={'lg'}
             variant='primary'
