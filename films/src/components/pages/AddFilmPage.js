@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Input, Button, VStack, Text, Heading, Flex, Textarea, NumberInput, NumberInputField, FormControl, FormLabel } from '@chakra-ui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
 const API_URL = "/api/v1/films"
+const API_LIMIT = 300
 
 const FilmFinder = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,6 +19,35 @@ const FilmFinder = () => {
     location_watched: '',
   });
   const navigate = useNavigate();
+
+  const [apiCalls, setApiCalls] = useState(0);
+
+  useEffect(() => {
+    const savedDate = localStorage.getItem('apiCallDate');
+    const savedCalls = parseInt(localStorage.getItem('apiCalls'), 10);
+
+    if (savedDate && savedCalls) {
+      const currentDate = new Date().toDateString();
+      if (savedDate === currentDate) {
+        setApiCalls(savedCalls);
+      } else {
+        localStorage.setItem('apiCallDate', currentDate);
+        localStorage.setItem('apiCalls', '0');
+        setApiCalls(0);
+      }
+    } else {
+      const currentDate = new Date().toDateString();
+      localStorage.setItem('apiCallDate', currentDate);
+      localStorage.setItem('apiCalls', '0');
+      setApiCalls(0);
+    }
+  }, []);
+
+  const incrementApiCalls = () => {
+    const newCalls = apiCalls + 1;
+    setApiCalls(newCalls);
+    localStorage.setItem('apiCalls', newCalls.toString());
+  };
 
   const handleSearch = async () => {
     setSelectedFilm(null);
@@ -36,6 +66,13 @@ const FilmFinder = () => {
     };
 
     try {
+      // Check if the limit has been reached
+      incrementApiCalls()
+      if (apiCalls >= API_LIMIT) {
+        toast.error('API call limit reached for today');
+        return;
+      }
+
       const response = await axios.request(options);
       setFilms(response.data.Search);
       if (!response.data.Search || response.data.Search.length < 1) {toast.info(`No films found for ${searchTerm}. Try searching whole words - partial words aren't supported`)}
