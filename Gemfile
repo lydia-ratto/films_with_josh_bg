@@ -23,6 +23,9 @@ gem "rack-cors"
 
 gem "faker"
 
+# pagination gem
+gem "pagy"
+
 # for search
 gem "pg_search"
 

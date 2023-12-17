@@ -4,7 +4,6 @@ import Film from "./Film"
 function AllFilmsTable(items) {
   const films = items.items;
   return (
-    <div>
       <div className="films-grid">
         {films?.map((film) => {
           return (
@@ -14,7 +13,6 @@ function AllFilmsTable(items) {
           })
         }
       </div>
-    </div>
   )
 }
 

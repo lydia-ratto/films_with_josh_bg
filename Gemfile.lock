@@ -137,6 +137,7 @@ GEM
     nokogiri (1.14.1-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (6.2.0)
     pg (1.4.5)
     pg_search (2.3.6)
       activerecord (>= 5.2)
@@ -208,6 +209,7 @@ DEPENDENCIES
   devise-jwt
   dotenv-rails
   faker
+  pagy
   pg (~> 1.4.5)
   pg_search
   puma (~> 5.0)

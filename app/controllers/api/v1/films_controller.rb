@@ -1,12 +1,17 @@
+require 'pagy/extras/metadata'
 class Api::V1::FilmsController < ApplicationController
   include FilmsConcern
+  include Pagy::Backend
   before_action :set_film, only: %i[show update destroy]
 
   def index
     query = params[:query]
-    @films = query ? Film.search_by_title_director_and_actors(query) : Film.all
-    @films = @films.order(date_watched: :desc)
-    render json: @films
+    films = query ? Film.search_by_title_director_and_actors(query) : Film.all
+    films = films.order(date_watched: :desc)
+
+    @pagy, @films = pagy(films)
+
+    render json: { data: @films, pagy: pagy_metadata(@pagy) }
   end
 
   def show

@@ -31,7 +31,7 @@ function Navbar( {className, logout} ) {
       px='20'
       position={'sticky'}
       top={'0'}
-      bg={'#F7D9AE'}
+      bg={'#F8D6A3'}
       boxShadow='0px 3px 4px 0px rgba(0,0,0,0.1)'
       zIndex={'999'}
     >

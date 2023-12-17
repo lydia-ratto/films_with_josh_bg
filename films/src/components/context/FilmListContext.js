@@ -6,6 +6,16 @@ export const initialFilmList = {
   total: 0,
   loading: false,
   error: null,
+  pagy: {
+    page: 1,
+    pages: 1,
+    next: null,
+    next_url: null,
+    prev: null,
+    prev_url: null,
+    first_url: null,
+    last_url: null
+  },
 }
 
 const FilmListContext = createContext({

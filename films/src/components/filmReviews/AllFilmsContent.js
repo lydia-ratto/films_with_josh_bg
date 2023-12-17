@@ -2,6 +2,8 @@ import React from "react"
 import { useMemo, useContext } from 'react'
 import FilmListContext from "../context/FilmListContext";
 import AllFilmsTable from "./AllFilmsTable";
+import Pagination from "../sections/Pagination";
+import { Flex } from "@chakra-ui/react";
 
 function normalizedFilmData(data) {
   if (data?.length > 0) {
@@ -27,12 +29,16 @@ function normalizedFilmData(data) {
   }
 }
 
-function AllFilmsContent() {
+function AllFilmsContent({ onPageChange }) {
   const { filmList } = useContext(FilmListContext);
   const formattedFilmData = useMemo(() => normalizedFilmData(filmList.items), [filmList.items]);
 
   return (
-    <AllFilmsTable items={formattedFilmData} />
+    <Flex direction={"column"}>
+      <Pagination onPageChange={onPageChange} pagy={filmList.pagy}/>
+      <AllFilmsTable items={formattedFilmData} />
+      <Pagination onPageChange={onPageChange} pagy={filmList.pagy}/>
+    </Flex>
   )
 }
 
