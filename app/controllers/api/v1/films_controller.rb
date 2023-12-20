@@ -7,7 +7,7 @@ class Api::V1::FilmsController < ApplicationController
   def index
     query = params[:query]
     films = query ? Film.search_by_title_director_and_actors(query) : Film.all
-    films = films.order(date_watched: :desc)
+    films = apply_sort(films)
 
     @pagy, @films = pagy(films)
 
@@ -60,4 +60,26 @@ class Api::V1::FilmsController < ApplicationController
   def film_params
     params.require(:film).permit(:imdb_id, :josh_score, :josh_notes, :date_watched, :seen_before, :location_watched)
   end
+
+  def apply_sort(films)
+    sort_params = params[:sort]
+
+    case sort_params
+    when 'date_added_asc'
+      films.order(date_watched: :asc)
+    when 'date_added_desc'
+      films.order(date_watched: :desc)
+    when 'date_released_asc'
+      films.order(release_year: :asc)
+    when 'date_released_desc'
+      films.order(release_year: :desc)
+    when 'score_asc'
+      films.order(josh_score: :asc)
+    when 'score_desc'
+      films.order(josh_score: :desc)
+    else
+      films.order(date_watched: :desc)
+    end
+  end
+
 end

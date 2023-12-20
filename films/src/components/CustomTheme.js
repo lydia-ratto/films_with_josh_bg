@@ -134,6 +134,44 @@ export const CustomTheme = extendTheme({
         variant: null
       }
     },
+    Select: {
+      baseStyle: {
+        field: {
+          borderRadius: '30px',
+          mt: '30px',
+          ml: '10px',
+          height: '60px',
+          fontWeight: "900",
+          width: '10rem',
+          textAlign: 'center',
+          color: "brand.light-grey",
+        },
+        icon: {
+          mt: '15px'
+        }
+      },
+      variants: {
+        filled: {
+          field: {
+            borderColor: 'brand.orange',
+            borderWidth: '7px',
+            background: 'white',
+            _hover: {
+              borderColor: "brand.brown",
+              backgroundColor: 'white',
+            },
+            _focusVisible: {
+              borderColor: "brand.brown",
+              backgroundColor: 'white',
+            },
+          },
+        },
+      },
+      sizes: {},
+      defaultProps: {
+        variant: null
+      }
+    },
     Checkbox: {
       baseStyle: {
         control: {

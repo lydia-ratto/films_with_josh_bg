@@ -32,7 +32,7 @@
 
 .film-image {
   width: 100%;
-  height: 70%;
+  min-height: 70%;
   border-radius: 12px 12px 0px 0px;
   object-fit: cover;
 }
@@ -49,4 +49,12 @@
   width: 29px;
   height: 29px;
   margin-right: 10px;
+}
+
+.two-line-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2; /* Number of lines to show */
 }

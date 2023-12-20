@@ -4,47 +4,57 @@ import axios from 'axios';
 import FilmListContext, { initialFilmList } from '../context/FilmListContext';
 import { useNavigate } from 'react-router';
 
-const API_URL = "/api/v1/films"
-
-
-function UseFilmList({children, searchQuery, apiUrl}) {
+function UseFilmList({ children, searchQuery, sortType, apiUrl }) {
   const filmListCtx = useContext(FilmListContext);
   const navigate = useNavigate();
   const { filmList, updateFilmList } = filmListCtx;
 
-  if (!apiUrl) {
-    apiUrl = API_URL
-  }
+  const constructApiUrl = () => {
+  
+    // Remove existing search and sort parameters
+    let url = apiUrl
+
+    // Add search parameter if exists
+    if (searchQuery) {
+      url += `?query=${encodeURIComponent(searchQuery)}`;
+    }
+
+    // Add sort parameter if exists
+    if (sortType) {
+      const separator = url.includes('?') ? '&' : '?';
+      url += `${separator}sort=${encodeURIComponent(sortType)}`;
+    }
+
+    return url;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         updateFilmList({
           ...filmList,
-          loading: false,
-        }
-        );
+          loading: true, // Set loading to true while fetching data
+        });
 
-        if (searchQuery) {
-          apiUrl += `?query=${searchQuery}`;
-        }
+        const response = await axios.get(constructApiUrl());
+        const { data, pagy } = response.data;
 
-        const response = await axios.get(apiUrl)
-        const { data, pagy }  = response.data
         updateFilmList({
           items: data,
-          pagy
-        })
+          pagy,
+          loading: false, // Set loading back to false after successful data fetch
+        });
       } catch (onError) {
         filmListCtx.updateFilmList({
           ...initialFilmList,
           loading: false,
-        })
+        });
         navigate('/films', { replace: true });
       }
     };
+
     fetchData();
-  }, [searchQuery, apiUrl]);
+  }, [searchQuery, apiUrl, sortType]);
 
   return <>{children}</>;
 }

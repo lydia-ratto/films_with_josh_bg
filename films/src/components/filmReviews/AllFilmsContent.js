@@ -37,7 +37,6 @@ function AllFilmsContent({ onPageChange }) {
     <Flex direction={"column"}>
       <Pagination onPageChange={onPageChange} pagy={filmList.pagy}/>
       <AllFilmsTable items={formattedFilmData} />
-      <Pagination onPageChange={onPageChange} pagy={filmList.pagy}/>
     </Flex>
   )
 }

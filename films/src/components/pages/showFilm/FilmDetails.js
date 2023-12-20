@@ -24,15 +24,73 @@ function FilmDetails({ filmData }) {
       </Flex>
 }
       <Flex className="show--top">
-        <Image
-          w="384px"
-          objectFit="cover"
-          align="center"
-          border="8px solid #DC9A38"
-          borderRadius="12px"
-          src={filmData.imageUrl}
-          alt="poster"
-        />
+        <div>
+          <Image
+            minW="384px"
+            minH="562px"
+            objectFit="cover"
+            align="center"
+            border="8px solid #DC9A38"
+            borderRadius="12px"
+            src={filmData.imageUrl}
+            alt="poster"
+          />
+          <Flex mt={"16px"}>
+            <Heading
+              flex={"1"}
+              as="h3"
+              fontSize="l"
+              >
+              Directed By: 
+              </Heading>
+            <Text
+                flex={"1"}
+                fontSize="l"
+                fontFamily="Raleway"
+                fontStyle="normal"
+                fontWeight="400"
+                lineHeight="normal"
+                ml={"10px"}
+                textAlign="left">{filmData.director}</Text>
+          </Flex>
+          <Flex mt={"16px"}>
+              <Heading as="h3" fontSize="l" flex={"1"}>
+                Age Rating:
+              </Heading>
+              <Text fontSize="l"
+                flex={"1"}
+                fontFamily="Raleway"
+                fontStyle="normal"
+                fontWeight="400"
+                lineHeight="normal" ml="10px" textAlign="left">
+                {filmData.ageRating}
+              </Text>
+            </Flex>
+               <Flex mt={"16px"}>
+              <Heading as="h3" fontSize="l" flex={"1"}>
+                Genre:
+              </Heading>
+              <Text fontSize="l" flex={"1"}
+                fontFamily="Raleway"
+                fontStyle="normal"
+                fontWeight="400"
+                lineHeight="normal" ml="10px" textAlign="left">
+                {filmData.genres}
+              </Text>
+            </Flex>
+            <Flex mt={"16px"} mb={'100px'}>
+              <Heading as="h3" fontSize="l" flex={"1"} >
+                Film Length:
+              </Heading>
+              <Text fontSize="l" flex={"1"}
+                fontFamily="Raleway"
+                fontStyle="normal"
+                fontWeight="400"
+                lineHeight="normal" ml="10px" textAlign="left">
+                {filmData.filmLengthMins} mins
+              </Text>
+            </Flex>
+        </div>
         <Box ml="6%">
           <Heading
             as="h2"
@@ -106,7 +164,7 @@ function FilmDetails({ filmData }) {
               </Link>
             </Box>
           </Flex>
-          <Box mt="50px">
+          <Box m="50px auto">
             <Heading
               textStyle="h3"
               textAlign="left"

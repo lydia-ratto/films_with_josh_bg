@@ -42,7 +42,7 @@ function AppRoutes() {
       logout={logout}
       user={user}
       />
-      <Box margin="90px 130px">
+      <Box margin="40px 130px">
       <Routes>
         <Route
           path="/"
