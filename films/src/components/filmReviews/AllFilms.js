@@ -13,7 +13,7 @@ function AllFilms() {
   const [apiUrl, setApiUrl] = useState("/api/v1/films");
   const [showPopup, setShowPopup] = useState(false);
   const popupText = "Hello Mr Bungard. Thank you for your film reviews, so far they are excellent and insightful. You might notice some changes, the bees have been working very hard behind the scenes to make this site better. We now have a sort, that sort-of works. More info has been added to the show page and some pesky bugs have been squashed. We're working on making the site mobile compatible for the new year, so keep an eye out for that. Please let your FWJB representative know if you have any feature requests or are experiencing any issues.\nHappy Holidays from the FWJB Dev team xx"
-  const popupEndDate = "2023-12-22"
+  const popupEndDate = "2023-12-20"
 
   const handleSearch = (query) => {
     setSearchQuery(query);
